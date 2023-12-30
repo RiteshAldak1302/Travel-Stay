@@ -3,7 +3,7 @@
  <div class="container">
   <h4 style="text-align: center;">Edit Your List</h4>
   <div class="row col-8 offset-2">
-    <form action="/listing/<%= listing._id %>?_method=PUT" method="POST">
+    <form action="/listing/<%= listing._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
       <div class="mb-1">
         <label for="title" class="form-label">Title</label>
         <input type="text" name="listing[title]" class="form-control" placeholder="enter title"
@@ -13,12 +13,12 @@
       <div class="mb-1">
         <label for="description" class="form-label">Description</label>
         <textarea name="listing[description]" class="form-control" placeholder="enter the description" id="" cols="30"
-          rows="10"> <%= listing.description %> </textarea>
+          rows="3"> <%= listing.description %> </textarea>
       </div>
 
       <div class="mb-1">
-        <label for="image" class="form-label">Image Link</label>
-       <input type="text" name="listing[image]" value="<%= listing.image %>" class="form-control" placeholder="enter image URL/LINK">
+        <label for="image" class="form-label">Upload New Image </label>
+       <input type="file" name="listing[image]" class="form-control" >
       </div>
 
       <div class="row">

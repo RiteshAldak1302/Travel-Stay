@@ -27,7 +27,7 @@ router
   // show Route // Update Route : to update the specific list in the database  // DElETE Route
   router.route("/:id")
   .get( wrapAsync(showListing))
-  .put(isLoggedIn, isOwner, validateListing, wrapAsync(updateListing))
+  .put(isLoggedIn, isOwner,upload.single('listing[image]'), validateListing, wrapAsync(updateListing))
   .delete(isLoggedIn, isOwner, wrapAsync(deleteListing));
   
   module.exports = router;  // it is important to export
