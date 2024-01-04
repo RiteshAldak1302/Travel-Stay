@@ -1,5 +1,22 @@
 <% layout("/layouts/boilerplate") %>
-
+    <style>
+            @media (max-width: 1000px) {
+               .show-card{
+                width: 100% !important;
+               }
+               .starability-result{
+                font-size: 1rem;
+               }
+               .review{
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+               }
+               .review-card{
+                width: 100%;
+               }
+            }
+    </style>
     <div class="row">
         <div class="col-6 offset-3">
             <div class="heading mt-4 mb-2 py-1">
@@ -76,7 +93,7 @@
                         <h4> <b> All Reviews </b></h4>
                         <div class="review row">
                             <% for(let review of listing.reviews){ %>
-                                <div class="card col-5 m-2 p-2">
+                                <div class="card col-5 m-2 p-2 review-card">
                                     <div class="card-body">
                                         <h5 class="card-title">@<%= review.author.username %>
                                         </h5>
