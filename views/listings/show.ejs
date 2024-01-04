@@ -21,9 +21,13 @@
                     width: 70%;
                 }
             }
+            .row1{
+                display: flex;
+                justify-content: center;
+            }
     </style>
-    <div class="row">
-        <div class="col-9 offset-2">
+    <div class="row row1">
+        <div class="col-9">
             <div class="heading mt-4 mb-2 py-1">
                 <h4>
                     <%= listing.title %>
@@ -61,7 +65,7 @@
             </div>
         </div>
 
-        <div class="col-9 offset-2">
+        <div class="col-9">
             <% if(currUser) {%>
                 <h4>Leave a Review</h4>
                 <form action="/listing/<%= listing._id %>/reviews" method="POST" novalidate class="needs-validation">
