@@ -16,16 +16,21 @@
                 width: 100%;
                }
             }
+            @media (max-width: 500px) {
+                .show-card{
+                    width: 70%;
+                }
+            }
     </style>
     <div class="row">
-        <div class="col-6 offset-3">
+        <div class="col-9 offset-2">
             <div class="heading mt-4 mb-2 py-1">
                 <h4>
                     <%= listing.title %>
                 </h4>
             </div>
 
-            <div class="card show-card listing-card" style="width: 40rem; ">
+            <div class="card show-card listing-card" >
                 <img src="<%= listing.image.url %>" class="card-img-top" style="height: 14rem;" alt="listing_image">
                 <div class="card-body">
                     <p class="card-text">
@@ -56,7 +61,7 @@
             </div>
         </div>
 
-        <div class="col-6 offset-3">
+        <div class="col-9 offset-2">
             <% if(currUser) {%>
                 <h4>Leave a Review</h4>
                 <form action="/listing/<%= listing._id %>/reviews" method="POST" novalidate class="needs-validation">
@@ -93,7 +98,7 @@
                         <h4> <b> All Reviews </b></h4>
                         <div class="review row">
                             <% for(let review of listing.reviews){ %>
-                                <div class="card col-5 m-2 p-2 review-card">
+                                <div class="card col-3 m-2 p-2 review-card">
                                     <div class="card-body">
                                         <h5 class="card-title">@<%= review.author.username %>
                                         </h5>
