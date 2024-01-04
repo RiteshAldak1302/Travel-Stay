@@ -1,46 +1,52 @@
 <% layout("/layouts/boilerplate") %>
-<br>
- <div class="container">
-  <h4 style="text-align: center;">Edit Your List</h4>
-  <div class="row col-8 offset-2">
-    <form action="/listing/<%= listing._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-      <div class="mb-1">
-        <label for="title" class="form-label">Title</label>
-        <input type="text" name="listing[title]" class="form-control" placeholder="enter title"
-          value="<%= listing.title %>">
-      </div>
-
-      <div class="mb-1">
-        <label for="description" class="form-label">Description</label>
-        <textarea name="listing[description]" class="form-control" placeholder="enter the description" id="" cols="30"
-          rows="3"> <%= listing.description %> </textarea>
-      </div>
-
-      <div class="mb-1">
-        <label for="image" class="form-label">Upload New Image </label>
-       <input type="file" name="listing[image]" class="form-control" >
-      </div>
-
-      <div class="row">
-        <div class="mb-1 col-md-4">
-          <label for="price" class="form-label">Price &#8377;</label>
-          <input type="number" name="listing[price]" class="form-control" value="<%= listing.price %>" placeholder="enter price">
+  <br>
+  <div class="container">
+    <h4 style="text-align: center;">Edit Your List</h4>
+    <div class="row col-8 offset-2">
+      <form action="/listing/<%= listing._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="mb-1">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" name="listing[title]" class="form-control" placeholder="enter title"
+            value="<%= listing.title %>">
+        </div>
+        <div class="row">
+          <div class="mb-3 row col-3">
+            <img src="<%= originalImgUrl %>">
+          </div>
+          <div class="mb-1 col-9">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" class="form-control" placeholder="enter the description" id=""
+              cols="30" rows="7"> <%= listing.description %> </textarea>
+          </div>
+        </div>
+        <div class="mb-1">
+          <label for="image" class="form-label">Upload New Image </label>
+          <input type="file" name="listing[image]" class="form-control">
         </div>
 
-        <div class="mb-1 col-md-8">
-          <label for="country" class="form-label">Country</label>
-          <input type="text" name="listing[country]" class="form-control" value="<%= listing.country %>" placeholder="enter country">
+        <div class="row">
+          <div class="mb-1 col-md-4">
+            <label for="price" class="form-label">Price &#8377;</label>
+            <input type="number" name="listing[price]" class="form-control" value="<%= listing.price %>"
+              placeholder="enter price">
+          </div>
+
+          <div class="mb-1 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" name="listing[country]" class="form-control" value="<%= listing.country %>"
+              placeholder="enter country">
+          </div>
         </div>
-      </div>
 
-      <div class="mb-3">
-        <label for="location" class="form-label">Location</label>
-        <input type="text" name="listing[location]" class="form-control" value="<%= listing.location %>" placeholder="enter location">
-      </div>
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input type="text" name="listing[location]" class="form-control" value="<%= listing.location %>"
+            placeholder="enter location">
+        </div>
 
-      <button class="btn btn-dark  mt-3 add-btn">Edit</button>
-      <br><br><br>
-    </form>
+        <button class="btn btn-dark  mt-3 add-btn">Edit</button>
+        <br><br><br>
+      </form>
 
+    </div>
   </div>
- </div>

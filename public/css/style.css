@@ -15,9 +15,14 @@ min-height: 100vh;
     height: 5rem;
     background-color: white;
 }
+.navbar-brand{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
 .fa-compass{
     color: #fe424d;
-    font-size: 2 rem;
+    font-size:  2rem;
 }
 .nav-link{
     color: #222222  !important;         /* !important is to override color to this value                       */
