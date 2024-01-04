@@ -75,6 +75,7 @@ app.use((req, res , next )=>{
      res.locals.success =  req.flash("success"); // storing the message into the success local variable we can access this message by using the success variable
      res.locals.error =  req.flash("error");
      res.locals.currUser = req.user;
+     console.log(req.user);
     next();
 });
 

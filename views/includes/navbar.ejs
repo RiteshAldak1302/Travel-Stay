@@ -34,12 +34,20 @@
     background-color: #fff;
     transition: all 0.5s;
   }
+  .username{
+    /* border: 2px solid black; */
+    border-radius: 12px;
+    color: #fff;
+    background-color:#fe424d ;
+    padding: 5px;
+  }
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/listing"><i class="far fa-compass"></i> <span class="title-name"> &nbsp;<span
           class="title-subname">Travel</span> Stay</span></a>
+      <div class="username">@<%= currUser.username %></div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
