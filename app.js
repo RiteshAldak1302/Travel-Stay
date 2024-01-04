@@ -38,7 +38,7 @@ main().then(()=>{
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     crypto: {
-        secret: "mysupersecretcode",
+        secret: process.env.SECRET,
     },
     touchAfter: 24*3600,
 });
@@ -49,7 +49,7 @@ store.on("error" , ()=>{
 
 const sessionOptions = {
     store: store,
- secret: 'keyboard cat',
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
   cookie : {
@@ -78,16 +78,6 @@ app.use((req, res , next )=>{
     next();
 });
 
-// app.get("/demo" , async (req , res)=>{
-//          let fakeUser = new User({
-//             email : "demo@User.com",
-//             username : "demo2"
-//          })
-
-//          let registeredUser = await User.register(fakeUser , "helloBhai");
-//          console.log(registeredUser);
-//          res.send(registeredUser);
-// })
 
 app.set("view engine", "ejs");
 app.set("views",path.join(__dirname,"views"));
