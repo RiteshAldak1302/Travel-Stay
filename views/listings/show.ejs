@@ -61,13 +61,15 @@
                         </form>
                     </div>
                     <% } %>
-                        <hr>
+                    <hr>
             </div>
         </div>
 
         <div class="col-9">
-            <% if(currUser) {%>
-                <h4>Leave a Review</h4>
+            <% if(currUser && currUser._id.equals(listing.owner._id)) {%>
+                    
+                <% } else if(currUser){ %>
+                    <h4>Leave a Review</h4>
                 <form action="/listing/<%= listing._id %>/reviews" method="POST" novalidate class="needs-validation">
                     <div class="mt-3 mb-3">
                         <label for="rating" class="form-label">Rating</label>
@@ -94,11 +96,12 @@
                         <div class="invalid-feedback">Please write something in the comment section</div>
                     </div>
                     <button class="btn btn-outline-dark mb-5">Submit</button>
-                </form>
-                <% } %>
+                </form> 
+                <br>
+                        <hr> 
+                <% } %>    
                     <% if(listing.reviews.length> 0){ %>
-                        <br>
-                        <hr>
+                        
                         <h4> <b> All Reviews </b></h4>
                         <div class="review row">
                             <% for(let review of listing.reviews){ %>
@@ -110,11 +113,13 @@
                                         <p class="card-text">
                                             <%= review.comment %>
                                         </p>
+                                        <% if(currUser._id.equals(review.author._id)){ %>
                                         <form
                                             action="/listing/<%= listing._id%>/reviews/<%= review._id %>?_method=DELETE"
                                             method="POST">
                                             <button class="btn btn-dark btn-sm">Delete</button>
                                         </form>
+                                        <% } %>
                                     </div>
                                 </div>
                                 <% } %>

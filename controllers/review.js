@@ -5,7 +5,7 @@ const Listing = require("../models/listing.js");
 module.exports.createReview = async (req , res)=>{
        
     let {id} = req.params;
-    const list1 = await Listing.findById({_id : id});
+    const list1 = await Listing.findById({_id : id}); // mogo   query
     const review1 =  new Review(req.body.review);
     review1.author = req.user._id;
      list1.reviews.push(review1);
